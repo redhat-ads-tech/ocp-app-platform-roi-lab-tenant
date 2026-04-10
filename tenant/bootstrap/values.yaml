@@ -1,0 +1,24 @@
+tenant:
+  username: ""
+  password: ""
+  domain: ""
+
+gitlab:
+  host: ""
+
+argocd:
+  namespace: openshift-gitops
+
+gitops:
+  repoURL: https://github.com/redhat-ads-tech/ocp-app-platform-demo-helm.git
+  targetRevision: main
+
+vault:
+  name: vault
+  namespace: vault
+
+cluster:
+  subdomain: ""
+
+registry:
+  host: ""
