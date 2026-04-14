@@ -89,7 +89,7 @@ data:
             body:
               name: tenant-bootstrap
               scopes: api
-              expires_at: "2030-01-01"
+              expires_at: "{{ "{{" }} '%Y-%m-%d' | strftime(ansible_date_time.epoch | int + 31536000) {{ "}}" }}"
             headers:
               PRIVATE-TOKEN: '{{ "{{" }} root_token {{ "}}" }}'
             validate_certs: false
