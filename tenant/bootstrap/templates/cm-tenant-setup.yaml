@@ -48,12 +48,12 @@ data:
             body_format: form-urlencoded
             body:
               admin: false
-              email: {{ "{{" }} tenant_username {{ "}}" }}@rhdemo.com
-              public_email: {{ "{{" }} tenant_username {{ "}}" }}@rhdemo.com
+              email: "{{ "{{" }} tenant_username {{ "}}" }}@rhdemo.com"
+              public_email: "{{ "{{" }} tenant_username {{ "}}" }}@rhdemo.com"
               skip_confirmation: true
-              username: {{ "{{" }} tenant_username {{ "}}" }}
-              password: {{ "{{" }} tenant_password {{ "}}" }}
-              name: {{ "{{" }} tenant_username {{ "}}" }}
+              username: "{{ "{{" }} tenant_username {{ "}}" }}"
+              password: "{{ "{{" }} tenant_password {{ "}}" }}"
+              name: "{{ "{{" }} tenant_username {{ "}}" }}"
             headers:
               PRIVATE-TOKEN: '{{ "{{" }} root_token {{ "}}" }}'
             validate_certs: false
