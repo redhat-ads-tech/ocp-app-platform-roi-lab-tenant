@@ -9,6 +9,10 @@ spec:
   template:
     spec:
       serviceAccountName: {{ include "tenant-bootstrap.name" . }}
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: tenant-setup
           command:
@@ -18,6 +22,11 @@ spec:
               set -x
               ansible-playbook -i localhost /scripts/playbook.yaml
           image: quay.io/agnosticd/ee-multicloud:latest
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
           volumeMounts:
             - mountPath: /scripts
               name: scripts
