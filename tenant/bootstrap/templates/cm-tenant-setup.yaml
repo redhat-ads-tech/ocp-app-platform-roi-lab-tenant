@@ -127,7 +127,7 @@ data:
             method: POST
             body_format: form-urlencoded
             body:
-              namespace_id: '{{ "{{" }} tenant_user_id {{ "}}" }}'
+              namespace_path: "{{ "{{" }} tenant_username {{ "}}" }}"
               name: parasol-insurance
               path: parasol-insurance
             headers:
@@ -147,7 +147,7 @@ data:
             method: POST
             body_format: form-urlencoded
             body:
-              namespace_id: '{{ "{{" }} tenant_user_id {{ "}}" }}'
+              namespace_path: "{{ "{{" }} tenant_username {{ "}}" }}"
               name: parasol-insurance-manifests
               path: parasol-insurance-manifests
             headers:
@@ -170,7 +170,7 @@ data:
             validate_certs: false
             status_code: 200
           register: r_fork_parasol_check
-          retries: 30
+          retries: 10
           delay: 10
           until:
             - r_fork_parasol_check.status == 200
@@ -185,7 +185,7 @@ data:
             validate_certs: false
             status_code: 200
           register: r_fork_manifests_check
-          retries: 30
+          retries: 10
           delay: 10
           until:
             - r_fork_manifests_check.status == 200
